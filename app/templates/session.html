@@ -1,16 +1,26 @@
-<div class="text-center">
+<div class="bg-gray border-bottom border-gray-light">
+    <div class="container text-center py-5 mb-4">
+
+<div class="h1">Presentation Session: {{session.name}}</div>
+
     {{#if presentations}}
       {{#each presentations as |item|}}
         {{> presentation item=item }}
+        <br />
 
             {{#if @last}}
+
+            <br />
+            <div class="h4">Add a powerpoint link to session {{session.name}}:</div>
             <form action="/session" method="POST">
 
-              URL:<br>
-              <input type="text" name="url"><br>
+              Label:
+              <input style="border: 2px solid gray;" type="text" name="name"><br>
+              URL:
+              <input style="border: 2px solid gray;" type="text" name="url"><br>
               <input type="hidden" name="position" value="{{@index}}">
               <input type="hidden" name="session_id" value="{{item.session_id}}">
-              <input type="submit" value="Submit">
+              <input style="border: 2px solid lightgreen;" type="submit" value="Submit">
         
             </form>
             {{else}}
@@ -19,20 +29,25 @@
       {{/each}}
     {{else}}
       <div class="rounded bg-light p-5 text-center text-muted">
-          <p class="m-4">No Presentations for this Session</p>
+          <p class="m-4">No Presentations for this Session.</p>
       </div>
 
-      <form action="/session" method="POST">
+      <br />
+            <div class="h4">Add a powerpoint link to session {{session.name}}:</div>
 
-        URL:<br>
-        <input type="text" name="url"><br>
-        <input type="hidden" name="position" value="{{-1}}">
-        <input type="hidden" name="session_id" value="{{item.session_id}}">
-        <input type="submit" value="Submit">
+      <form action="/session" method="POST">
+        
+        Label:
+              <input style="border: 2px solid gray;" type="text" name="name"><br>
+        URL:&nbsp;
+        <input style="border: 2px solid gray;" type="text" name="url"><br>
+        <input type="hidden" name="position" value="{{1}}">
+        <input type="hidden" name="session_id" value="{{session.session_id}}">
+        <input style="border: 2px solid lightgreen;" type="submit" value="Submit">
   
       </form>
     {{/if}}
     </div>
-
+</div>
 
    

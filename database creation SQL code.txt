@@ -9,6 +9,7 @@ CREATE TABLE session(
 CREATE TABLE presentation (
     presentation_id SERIAL PRIMARY KEY,
     session_id INTEGER REFERENCES session(session_id) NOT NULL,
+    name TEXT NOT NULL,
     url TEXT NOT NULL,
     position SMALLINT NOT NULL
 );
@@ -17,14 +18,14 @@ CREATE TABLE presentation (
 INSERT INTO session (name, info) 
 VALUES ('hello world', 'a basic presentation session');
 
-INSERT INTO presentation (session_id, url, position)
-VALUES (1, 'www.google.com', 1);
+INSERT INTO presentation (session_id, name, url, position)
+VALUES (1, 'google', 'http://www.google.com', 1);
 
-INSERT INTO presentation (session_id, url, position)
-VALUES (1, 'www.bing.com', 2);
+INSERT INTO presentation (session_id, name, url, position)
+VALUES (1, 'bing', 'http://www.bing.com', 2);
 
-INSERT INTO presentation (session_id, url, position)
-VALUES (1, 'www.duckduckgo.com', 4);
+INSERT INTO presentation (session_id, name, url, position)
+VALUES (1, 'duckduckgo', 'http://www.duckduckgo.com', 4);
 
-INSERT INTO presentation (session_id, url, position)
-VALUES (1, 'www.ask.com', 3);
+INSERT INTO presentation (session_id, name, url, position)
+VALUES (1, 'ask', 'http://www.ask.com', 3);

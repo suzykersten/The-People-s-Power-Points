@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
         // attributes
         session_id: {
           type: DataTypes.INTEGER,
-          allowNull: false
+          omitNull: true
         },
         name: {
           type: DataTypes.STRING
@@ -12,8 +12,11 @@ module.exports = (sequelize, DataTypes) => {
         }
       }, {
         // options
-        freezeTableName: true
+        freezeTableName: true,
+        timestamps: false
       });
+
+      session.removeAttribute("id");
 
       return session;
 };

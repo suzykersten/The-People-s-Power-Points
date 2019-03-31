@@ -4,24 +4,44 @@
     <div class="mt-3 mb-4">
       <h1 class="h1 mb-0">The People's Power(Points)</h1>
       <h2 class="h4 text-gray font-weight-light">Multiple Presentations, Simplified.</h2>
+      <p>Create sessions to store links to all of the slideshows that will be used for a presentation. </p>
+      <p>Works with Google Slides, Microsoft OneDrive, Slides.com, Prezi, anything where you can get a shareable link!</p>
     </div>
+  
   </div>
 </div>
+
+<div class="bg-gray border-bottom border-gray-light">
+    <div class="container text-center py-5 mb-4">
+      <div class="h2"> Presentation Sessions: </div> 
+      <p> Click a session to see the powerpoint presentations being used there and to add your own. </p>
 
     <div class="text-center">
     {{#if sessions}}
       {{#each sessions as |item|}}
         {{> session item=item }}
+        <br />
       {{/each}}
     {{else}}
       <div class="rounded bg-light p-5 text-center text-muted">
           <p class="m-4">No sessions</p>
       </div>
+      <br />
     {{/if}}
     </div>
 
-<div class="text-gray-light text-center py-5 my-5">
-  <p class="lead">Edit <code>controllers/</code> to update how to receive and reply to requests.</p>
-  <p class="lead">Edit <code>templates/</code> to update the layout and styling.</p>
-  <p class="lead">Edit <code>models/</code> to update how the data is stored.</p>
-</div>
+    <br />
+    <div class="h4">Add a session:</div>
+
+    <div class="text-center">
+      <form action="/" method="POST">
+        Name:
+        <input style="border: 2px solid gray;" type="text" name="name">
+        <input style="border: 2px solid lightgreen;"type="submit" value="Submit">
+      </form>
+
+      <br />
+
+    </div>
+    </div>
+  </div>
